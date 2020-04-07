@@ -3,3 +3,20 @@ email_one = open("email_one.txt", "r").read()
 email_two = open("email_two.txt", "r").read()
 email_three = open("email_three.txt", "r").read()
 email_four = open("email_four.txt", "r").read()
+
+def censor_instance(text):
+    new = text.replace('\n',' ').split(' ')
+    for x in range(len(new)):
+        if new[x] == 'learning':
+            if new[x+1] == 'algorithms':
+                new[x] = '*******'
+                new[x+1] = '*******'
+                continue
+        elif new[x] == '':
+            new[x] = '\n\n'
+            continue
+        else:
+            continue
+    return ' '.join(new)      
+
+print(censor_instance(email_one))
